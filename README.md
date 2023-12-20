@@ -1,10 +1,13 @@
+# how-to-use-custom-font-icon-in-.net-maui-expander
+This example demonstrates about how to use the font icon in expander part of .NET MAUI Expander (SfExpander).
+
 You can customize the expander header icon with font icons in  [.NET MAUI Expander](https://www.syncfusion.com/maui-controls/maui-expander). Please follow the steps below to use the font icons in the Expander Header element.
 
 **Step 1**: Place the ttf file in the shared code project and set the Build action as MauiFont.
 
 **Step 2**: In ResourceDictionary, define the font to use the custom font as StaticResource.
 
-```
+``` xml
 <ContentPage.Resources>
     <ResourceDictionary>
         <OnPlatform x:TypeArguments="x:String" x:Key="ExpanderIcon">
@@ -20,7 +23,7 @@ You can customize the expander header icon with font icons in  [.NET MAUI Expand
 
 **Step 3**: Bind the FontFamily for Label using resource key. Use converter to display platform specific icons and bind the Device platform using RuntimePlatform to specify the platform in the ConverterParameter. Set HeaderIconPosition as None to hide the default Header icon.
 
-```
+``` xml
 <ContentPage.Content>
     <ScrollView BackgroundColor="#EDF2F5">
         <StackLayout>
@@ -70,29 +73,29 @@ You can customize the expander header icon with font icons in  [.NET MAUI Expand
 
 **Step 4**: Converter to display icon.
 
-```
+``` c#
 public class ExpanderIconConverter : IValueConverter
-   {
-       public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-       {
-           if ((bool)value)
-           {
-               return "\ue700";
-           }
-           else
-           {             
-               return "\ue701";
-           }
-       }
+{
+    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        if ((bool)value)
+        {
+            return "\ue700";
+        }
+        else
+        {             
+            return "\ue701";
+        }
+    }
 
-       public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-       {
-           throw new NotImplementedException();
-       }
-   }
-   ```
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        throw new NotImplementedException();
+    }
+}
+```
 
-   [View sample in GitHub](https://github.com/SyncfusionExamples/how-to-use-custom-font-icon-in-.net-maui-expander)
+[View sample in GitHub](https://github.com/SyncfusionExamples/how-to-use-custom-font-icon-in-.net-maui-expander)
 
 **Conclusion**
 I hope you enjoyed learning about how to use a custom font icon for Expander in .NET MAUI (SfExpander).
